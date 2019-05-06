@@ -3,8 +3,14 @@ spring:
   cloud:
     config:
       server:
-        native:
-          search-locations: classpath:/shared
+        git:
+          uri: https://github.com/yuluhuang/spring-boot-cloud-demo.git
+          search-paths: respo
+          username: 504367857@qq.com
+          password:
+      label: master
+#        native:
+#          search-locations: classpath:/shared
 
   profiles:
     active: native
