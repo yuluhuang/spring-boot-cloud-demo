@@ -4,9 +4,9 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/yuluhuang/spring-boot-cloud-demo.git
-          search-paths: respo
-          username: 504367857@qq.com
+          uri: https://github.com/yuluhuang/spring-boot-cloud-demo
+          search-paths: config
+          username:
           password:
       label: master
 #        native:
