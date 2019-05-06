@@ -25,6 +25,8 @@ zuul:
     feignapi:
       path: /feignapi/**
       serviceId: eureka-feign-client
+#  prefix: /v1
+
 #hystrix:
 #  command:
 #    default:
@@ -41,3 +43,16 @@ ribbon:
   ConnectTimeout: 60000
   eureka:
     enabled: true
+
+
+#zuul:
+#  routes:
+#    xxapi:
+#      path: /xxapi/**
+#      serviceId: xxapi-v1
+#ribbon:
+#  eureka:
+#    enabled: false
+#xxapi-v1:
+#  ribbon:
+#    listOfServers: http://localhost:8763,http://localhost:8764
