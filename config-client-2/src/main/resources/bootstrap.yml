@@ -4,18 +4,27 @@ spring:
 
   cloud:
     config:
-#      uri: http://localhost:8768
+      #      uri: http://localhost:8768
       fail-fast: true
       discovery:
         enabled: true
         service-id: config-server
   profiles:
     active: dev
+  kafka:
+    host: localhost
+    port: 9092
+    username: guest
+    password: guest
 
 server:
-  port: 9762
+  port: 9763
 
 eureka:
   client:
     service-url:
       default-zone: http://localhost:8761/eureka/
+
+management:
+  security:
+    enabled: false
