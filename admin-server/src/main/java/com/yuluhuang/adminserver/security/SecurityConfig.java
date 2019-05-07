@@ -9,7 +9,6 @@
  */
 package com.yuluhuang.adminserver.security;
 
-import org.springframework.context.annotation.Configuration;
 /**
  * @author yoshikouamari
  * @Description
