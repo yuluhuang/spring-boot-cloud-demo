@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: service-turbine
+  boot:
+    admin:
+      routes:
+        endpoints: env,metrics,trace,dump,jolokia,info,configprops,trace,logfile,refresh,flyway,liquibase,heapdump,activiti
+
+
+server:
+  port: 9415
+
+turbine:
+#  instanceUrlSuffix:
+#    default: actuator/hystrix.stream
+  aggregator:
+    cluster-config: default
+
+  app-config: eureka-client
+  cluster-name-expression: new String("default")
+  combine-host-port: true
+
+
+eureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761/eureka
+
+management:
+  security:
+    enabled: false
+  endpoint:
+    health:
+      enabled: true
+#    web:
+#      base-path: /actuator
+

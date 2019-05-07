@@ -1,8 +1,8 @@
 eureka:
   instance:
     prefer-ip-address: true
-    appname: eureka-client
-    hostname: eureka-client
+#    appname: eureka-client
+#    hostname: eureka-client
   client:
     service-url:
       default-zone: http://localhost:8761/eureka/
@@ -12,3 +12,12 @@ server:
 spring:
   application:
     name: eureka-client
+
+
+logging:
+  file: "logs/eureka-client-two.log"
+
+
+management:
+  security:
+    enabled: false
