@@ -19,5 +19,8 @@ spring:
     name: service-admin
   boot:
     admin:
+      turbine:
+        clusters: default
+        location: service-turbine
       routes:
         endpoints: env,metrics,dump,jolokia,info,configprops,trace,logfile,refresh,flyway,liquibase,heapdump,loggers,auditevents,hystrix.stream

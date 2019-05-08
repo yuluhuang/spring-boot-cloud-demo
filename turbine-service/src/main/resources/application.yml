@@ -11,12 +11,12 @@ server:
   port: 9415
 
 turbine:
-#  instanceUrlSuffix:
-#    default: actuator/hystrix.stream
+  instanceUrlSuffix:
+    default: actuator/hystrix.stream
   aggregator:
     cluster-config: default
 
-  app-config: eureka-client
+  app-config: eureka-client,eureka-client-one
   cluster-name-expression: new String("default")
   combine-host-port: true
 
