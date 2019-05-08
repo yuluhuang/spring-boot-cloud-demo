@@ -1,5 +1,11 @@
 eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+    health-check-url-path: /actuator/health
+    metadata-map:
+      startup: ${random.int}    #needed to trigger info and endpoint update after restart
   client:
+    registryFetchIntervalSeconds: 5
     service-url:
       default-zone: http://localhost:8761/eureka/
 
@@ -7,8 +13,12 @@ server:
   port: 9414
 
 spring:
+  boot:
+    admin:
+      client:
+        url: http://localhost:5001
   application:
-    name: eureka-client-one
+    name: admin-client
 
 logging:
   file: "logs/eureka-client-one.log"
@@ -16,3 +26,10 @@ logging:
 management:
   security:
     enabled: false
+  endpoint:
+    health:
+      show-details: ALWAYS
+  endpoints:
+    web:
+      exposure:
+        include: "*"
