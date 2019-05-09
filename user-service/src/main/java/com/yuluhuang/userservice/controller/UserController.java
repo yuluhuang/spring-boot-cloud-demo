@@ -9,14 +9,12 @@
  */
 package com.yuluhuang.userservice.controller;
 
+import com.yuluhuang.userservice.dto.UserLoginDTO;
 import com.yuluhuang.userservice.entity.User;
 import com.yuluhuang.userservice.service.UserServiceDetail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  *
@@ -38,7 +36,13 @@ public class UserController {
 
     @Autowired
     UserServiceDetail userServiceDetail;
+    @PostMapping("/register")
     public User postUser(@RequestParam("username") String username, @RequestParam("password") String password) {
         return userServiceDetail.insertUser(username, password);
+    }
+
+    @PostMapping("/login")
+    public UserLoginDTO login(@RequestParam("username") String username, @RequestParam("password") String password) {
+        return userServiceDetail.login(username, password);
     }
 }

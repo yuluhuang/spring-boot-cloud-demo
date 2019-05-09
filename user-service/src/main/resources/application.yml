@@ -27,3 +27,16 @@ spring:
 feign:
   hystrix:
     enabled: true
+
+
+
+security:
+  oauth2:
+    resource:
+      user-info-uri: http://localhost:5008/uaa/users/current
+    client:
+      access-token-uri: http://localhost:5008/uaa/oauth/token
+      id: uaa-service
+      client-secret: 123456
+      grant-type: client_credentials,password
+      scope: server

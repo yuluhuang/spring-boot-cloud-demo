@@ -9,7 +9,7 @@
  */
 package com.yuluhuang.uaaservice.config;
 
-import com.yuluhuang.authservice.service.impl.UserServiceDetail;
+import com.yuluhuang.uaaservice.impl.UserServiceDetail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -38,15 +38,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return super.authenticationManagerBean();
     }
 
-    @Autowired
-    private UserServiceDetail userServiceDetail;
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-
-//        http.authorizeRequests().anyRequest().authenticated()
-//                .and()
-//                .csrf().disable();
         http.csrf().disable()
                 .exceptionHandling()
                 .authenticationEntryPoint((request, response, authExceptiopn) -> response.sendError(HttpServletResponse.SC_UNAUTHORIZED))
@@ -59,7 +52,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 
     }
-
+    @Autowired
+    private UserServiceDetail userServiceDetail;
     @Override
     protected void configure(AuthenticationManagerBuilder auth)
             throws Exception {

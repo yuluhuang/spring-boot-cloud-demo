@@ -1,9 +1,9 @@
 
 spring:
   application:
-    name: service-auth
+    name: uaa-service
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/oauth2?useUnicode=true&characterEncoding=utf8&useSSL=false
     username: root
 
@@ -12,7 +12,7 @@ spring:
       ddl-auto: update
     show-sql: true
 server:
-  port: 5006
+  port: 5008
   servlet:
     context-path: /uaa
 
@@ -26,3 +26,5 @@ eureka:
   client:
     service-url:
       default-zone: http://localhost:8761/eureka/
+
+

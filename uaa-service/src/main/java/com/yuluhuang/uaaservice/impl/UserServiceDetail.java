@@ -9,7 +9,7 @@
  */
 package com.yuluhuang.uaaservice.impl;
 
-import com.yuluhuang.authservice.dao.UserDao;
+import com.yuluhuang.uaaservice.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

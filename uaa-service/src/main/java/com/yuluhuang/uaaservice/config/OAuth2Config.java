@@ -9,7 +9,7 @@
  */
 package com.yuluhuang.uaaservice.config;
 
-import com.yuluhuang.authservice.service.impl.UserServiceDetail;
+import com.yuluhuang.uaaservice.impl.UserServiceDetail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -22,9 +22,12 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.A
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
+import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JdbcTokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
+import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 import org.springframework.security.oauth2.provider.token.store.KeyStoreKeyFactory;
+import org.springframework.security.oauth2.provider.token.store.jwk.JwkTokenStore;
 
 import javax.sql.DataSource;
 
@@ -34,16 +37,32 @@ import javax.sql.DataSource;
  * @date 2019-05-08 20:36
  */
 @Configuration
-@EnableConfigurationProperties
+//@EnableConfigurationProperties
 @EnableAuthorizationServer
 public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
 
-    @Autowired
-    @Qualifier("dataSource")
-    private DataSource dataSource;
+    //    @Autowired
+//    @Qualifier("dataSource")
+//    private DataSource dataSource;
+//
+//
+//    JdbcTokenStore tokenStore = new JdbcTokenStore(dataSource);
+    @Override
+    public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
+//        super.configure(clients);
+        clients.inMemory()
+                .withClient("user-service")
+                .secret("{noop}123456")
+                .scopes("service")
+                .authorizedGrantTypes("refresh_token", "password")
+                .accessTokenValiditySeconds(3600);
+    }
 
-
-    JdbcTokenStore tokenStore = new JdbcTokenStore(dataSource);
+    @Override
+    public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
+//        super.configure(endpoints);
+        endpoints.tokenStore(jwtTokenStore()).tokenEnhancer(jwtTokenEnhancer()).authenticationManager(authenticationManager);
+    }
 
     @Autowired
     @Qualifier("authenticationManagerBean")
@@ -57,28 +76,14 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
 
     }
 
-    @Override
-    public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-//        super.configure(clients);
-        clients.inMemory()
-                .withClient("user-service")
-                .secret("123456")
-                .scopes("service")
-                .authorizedGrantTypes("refresh_token", "password")
-                .accessTokenValiditySeconds(3600);
+
+
+
+
+    @Bean
+    public TokenStore jwtTokenStore() {
+        return new JwtTokenStore(jwtTokenEnhancer());
     }
-
-    @Override
-    public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-//        super.configure(endpoints);
-        endpoints.tokenStore(tokenStore).tokenEnhancer(jwtTokenEnhancer()).authenticationManager(authenticationManager).userDetailsService(userServiceDetail);
-    }
-
-
-//    @Bean
-//    public TokenStore tokenStore() {
-//        return new JwkTokenStore("/", jwtTokenEnhancer());
-//    }
 
     @Bean
     protected JwtAccessTokenConverter jwtTokenEnhancer() {

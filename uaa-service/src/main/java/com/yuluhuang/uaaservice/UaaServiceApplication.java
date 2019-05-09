@@ -9,7 +9,6 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 @SpringBootApplication
 @EnableResourceServer
 @EnableEurekaClient
-@EnableOAuth2Client
 public class UaaServiceApplication {
 
     public static void main(String[] args) {
