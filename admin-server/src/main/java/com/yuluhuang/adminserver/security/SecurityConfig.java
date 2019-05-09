@@ -1,7 +1,7 @@
 /**
  * @Title
  * @Project spring-boot-cloud-demo
- * @Package com.yuluhuang.adminserver.security
+ * @Package com.yuluhuang.adminserver.config
  * @Description
  * @author yoshikouamari
  * @date 2019-05-07 17:16
