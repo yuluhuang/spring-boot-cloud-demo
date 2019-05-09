@@ -43,7 +43,7 @@ public class HiController {
         return "hello you!";
     }
 
-    @GetMapping("getPrinciple")
+    @GetMapping("/getPrinciple")
     public OAuth2Authentication getPrinciple(OAuth2Authentication oAuth2Authentication, Principal principal,
                                              Authentication authentication) {
         logger.info(oAuth2Authentication.getUserAuthentication().getAuthorities().toString());

@@ -1,0 +1,131 @@
+{
+  "authorities": [
+    {
+      "authority": "ROLE_ADMIN"
+    }
+  ],
+  "details": {
+    "remoteAddress": "0:0:0:0:0:0:0:1",
+    "sessionId": null,
+    "tokenValue": "d33a9399-6c49-4619-8437-a957ab791e41",
+    "tokenType": "Bearer",
+    "decodedDetails": null
+  },
+  "authenticated": true,
+  "userAuthentication": {
+    "authorities": [
+      {
+        "authority": "ROLE_ADMIN"
+      }
+    ],
+    "details": {
+      "authorities": [
+        {
+          "id": 2,
+          "name": "ROLE_ADMIN",
+          "authority": "ROLE_ADMIN"
+        }
+      ],
+      "details": {
+        "remoteAddress": "127.0.0.1",
+        "sessionId": null,
+        "tokenValue": "d33a9399-6c49-4619-8437-a957ab791e41",
+        "tokenType": "Bearer",
+        "decodedDetails": null
+      },
+      "authenticated": true,
+      "userAuthentication": {
+        "authorities": [
+          {
+            "id": 2,
+            "name": "ROLE_ADMIN",
+            "authority": "ROLE_ADMIN"
+          }
+        ],
+        "details": {
+          "grant_type": "password",
+          "username": "miya"
+        },
+        "authenticated": true,
+        "principal": {
+          "id": 1,
+          "username": "miya",
+          "password": "$2a$10$Ixjd5FBQqIwqZL5K17YKY.5NFV2.wR2cKidVanqDYL9wpcnI3GcGq",
+          "authorities": [
+            {
+              "id": 2,
+              "name": "ROLE_ADMIN",
+              "authority": "ROLE_ADMIN"
+            }
+          ],
+          "enabled": true,
+          "accountNonLocked": true,
+          "credentialsNonExpired": true,
+          "accountNonExpired": true
+        },
+        "credentials": null,
+        "name": "miya"
+      },
+      "oauth2Request": {
+        "clientId": "service-hi",
+        "scope": [
+          "server"
+        ],
+        "requestParameters": {
+          "grant_type": "password",
+          "username": "miya"
+        },
+        "resourceIds": [],
+        "authorities": [],
+        "approved": true,
+        "refresh": false,
+        "redirectUri": null,
+        "responseTypes": [],
+        "extensions": {},
+        "grantType": "password",
+        "refreshTokenRequest": null
+      },
+      "credentials": "",
+      "principal": {
+        "id": 1,
+        "username": "miya",
+        "password": "$2a$10$Ixjd5FBQqIwqZL5K17YKY.5NFV2.wR2cKidVanqDYL9wpcnI3GcGq",
+        "authorities": [
+          {
+            "id": 2,
+            "name": "ROLE_ADMIN",
+            "authority": "ROLE_ADMIN"
+          }
+        ],
+        "enabled": true,
+        "accountNonLocked": true,
+        "credentialsNonExpired": true,
+        "accountNonExpired": true
+      },
+      "clientOnly": false,
+      "name": "miya"
+    },
+    "authenticated": true,
+    "principal": "miya",
+    "credentials": "N/A",
+    "name": "miya"
+  },
+  "clientOnly": false,
+  "principal": "miya",
+  "credentials": "",
+  "oauth2Request": {
+    "clientId": null,
+    "scope": [],
+    "requestParameters": {},
+    "resourceIds": [],
+    "authorities": [],
+    "approved": true,
+    "refresh": false,
+    "redirectUri": null,
+    "responseTypes": [],
+    "extensions": {},
+    "grantType": null,
+    "refreshTokenRequest": null
+  },
+  "name": "miya"
+}

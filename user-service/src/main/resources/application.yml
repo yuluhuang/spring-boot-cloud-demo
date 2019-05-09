@@ -9,10 +9,21 @@ server:
 spring:
   application:
     name: user-service
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/oauth2?useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
 
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
   zipkin:
     base-url: http://localhost:9411
 
   sleuth:
     sampler:
       percentage: 1.0
+feign:
+  hystrix:
+    enabled: true
