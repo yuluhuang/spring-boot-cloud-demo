@@ -1,8 +1,8 @@
 spring:
   application:
-    name: service-turbine
+    name: service-monitor
 server:
-  port: 8769
+  port: 8770
 
 turbine:
   aggregator:

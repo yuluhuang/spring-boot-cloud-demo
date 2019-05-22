@@ -1,12 +1,15 @@
 eureka:
+  #  instance:
+  #    metadata-map:
+  #      user.name: "${config.user.name}"
+  #      user.password: "${config.user.password}"
   client:
     service-url:
       default-zone: http://localhost:8761/eureka/
 
 management:
   security:
-    enabled: false
-
+    enabled: true
 
 server:
   port: 5001
@@ -14,13 +17,32 @@ server:
 logging:
   file: "logs/boot-admin-sample.log"
 
+
 spring:
+  security:
+    user:
+      name: admin
+      password: 123456
   application:
-    name: service-admin
+    name: service-admin-2
   boot:
     admin:
+      username: root
+      password: 123456
+      client:
+        metadata:
+          user:
+            name: admin
+            password: 123456
       turbine:
         clusters: default
         location: service-turbine
       routes:
-        endpoints: env,metrics,dump,jolokia,info,configprops,trace,logfile,refresh,flyway,liquibase,heapdump,loggers,auditevents,hystrix.stream
+        endpoints: env,metrics,trace,dump,jolokia,info,configprops,trace,logfile,refresh,flyway,liquibase,heapdump,activiti
+
+security:
+  user:
+    name: admin
+    password: 123456
+  basic:
+    enabled: false

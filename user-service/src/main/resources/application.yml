@@ -10,7 +10,7 @@ spring:
   application:
     name: user-service
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/oauth2?useUnicode=true&characterEncoding=utf8&useSSL=false
     username: root
 
@@ -40,3 +40,4 @@ security:
       client-secret: 123456
       grant-type: client_credentials,password
       scope: server
+

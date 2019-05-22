@@ -9,7 +9,6 @@ import org.springframework.cloud.netflix.turbine.EnableTurbine;
 @SpringBootApplication
 @EnableEurekaClient
 @EnableTurbine
-
 public class EurekaMonitorClientApplication {
 
     public static void main(String[] args) {
