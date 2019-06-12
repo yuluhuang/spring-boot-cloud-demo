@@ -9,6 +9,9 @@
    
    
    
-   
+   // oauth/token 固定写法
    curl user-service:123456@localhost:5008/uaa/oauth/token -d grant_type=password -d username=miyaa -d password=123456
    curl -l -H "Authorization:Bearer {access_token}" -X GET "localhost:9412/foo"
+
+
+   curl user-service:123456@localhost:5008/oauth2/oauth/token -d grant_type=password -d username=miya -d password=123456
