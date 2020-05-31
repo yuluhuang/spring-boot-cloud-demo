@@ -13,7 +13,7 @@
 
  Date: 05/09/2019 11:37:29 AM
 */
-
+use oauth2;
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 

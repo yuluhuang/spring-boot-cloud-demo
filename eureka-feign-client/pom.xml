@@ -42,15 +42,17 @@
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/io.github.openfeign/feign-httpclient -->
         <dependency>
-            <groupId>com.netflix.feign</groupId>
+            <groupId>io.github.openfeign</groupId>
             <artifactId>feign-httpclient</artifactId>
-            <scope>RELEASE</scope>
+            <version>11.0</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/io.github.openfeign/feign-okhttp -->
         <dependency>
-            <groupId>com.netflix.feign</groupId>
+            <groupId>io.github.openfeign</groupId>
             <artifactId>feign-okhttp</artifactId>
-            <scope>RELEASE</scope>
+            <version>9.2.0</version>
         </dependency>
 
         <dependency>
