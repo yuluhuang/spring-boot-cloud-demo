@@ -24,6 +24,8 @@ spring:
 security:
   oauth2:
     resource:
+      tokenInfoUri: http://localhost:5006/uaa/check_token
+      preferTokenInfo: true
       user-info-uri: http://localhost:5006/uaa/users/current
     client:
       access-token-uri: http://localhost:5006/uaa/oauth/token
